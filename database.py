@@ -56,12 +56,12 @@ def fetch_data(table_name):
     cur.execute(f'select * from {table_name}')
     data=cur.fetchall()
     return data
-products=fetch_data('products')
-print(products)
-sales=fetch_data('sales')
-print(sales)
-stock=fetch_data('stock')
-print(stock)
+# products=fetch_data('products')
+# print(products)
+# sales=fetch_data('sales')
+# print(sales)
+# stock=fetch_data('stock')
+# print(stock)
 
 
 #insert products
@@ -69,29 +69,29 @@ def insert_products(values):
     query="insert into products(name,buying_price,selling_price)values(%s,%s,%s);"
     cur.execute(query,values)
     connect.commit()
-new_product=('Oranges',15,25)
-# insert_products(new_product)
-products=fetch_data('products')
-print(products)
+# new_product=('Oranges',15,25)
+# # insert_products(new_product)
+# products=fetch_data('products')
+# print(products)
 
 #insert sales
 def insert_sales(values):
     query="insert into sales(product_id,quantity,created_at)values(%s,%s,now());"
     cur.execute(query,values)
     connect.commit()
-new_sale=(6,25)
-# insert_sales(new_sale)
-sales=fetch_data('sales')
-print(sales)
+# new_sale=(6,25)
+# # insert_sales(new_sale)
+# sales=fetch_data('sales')
+# print(sales)
 #insert stock
 def insert_stock(values):
     query="insert into stock(product_id,stock_quantity)values(%s,%s);"
     cur.execute(query,values)
     connect.commit()
-new_stock=(7,40)
-# insert_stock(new_stock)
-stock=fetch_data('stock')
-print(stock)
+# new_stock=(7,40)
+# # insert_stock(new_stock)
+# stock=fetch_data('stock')
+# print(stock)
 
 #1.Query to get profit per product
 def product_profit():
@@ -100,9 +100,9 @@ def product_profit():
     cur.execute(query)
     profit=cur.fetchall()
     return profit
-my_profit=product_profit
-print('profit')
-print(my_profit)
+# my_profit=product_profit
+# print('profit')
+# print(my_profit)
 
 #2.Query to get sales per product
 def product_sale():
@@ -111,6 +111,6 @@ def product_sale():
     cur.execute(query)
     sales=cur.fetchall()
     return sales
-my_sales=product_sale()
-print('sales')
-print(my_sales)
+# my_sales=product_sale()
+# print('sales')
+# print(my_sales)

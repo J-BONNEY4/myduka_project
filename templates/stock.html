@@ -15,23 +15,19 @@
     <table class="table">
         <thead>
             <tr>
+                <th scope="col">Stock Id</th>
                 <th scope="col">Product Id</th>
                 <th scope="col">Stock Quantity</th>
             </tr>
         </thead>
         <tbody>
+            {% for stock in my_stock %}
             <tr>
-                <th scope="row">1</th>
-                <td>120</td>
+                <td>{{stock[0]}}</td>
+                <td>{{stock[1]}}</td>
+                <td>{{stock[2]}}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>55</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>40</td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </body>

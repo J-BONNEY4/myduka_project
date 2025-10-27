@@ -23,21 +23,14 @@
             </tr>
         </thead>
         <tbody>
+            {% for sale in My_sales %}
             <tr>
-                <td scope="row">1</td>
-                <td>35</td>
-                <td>27/10/2025</td>
+                <td>{{sale[0]}}</td>
+                <td>{{sale[1]}}</td>
+                <td>{{sale[2]}}</td>
             </tr>
-            <tr>
-                <td scope="row">2</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td scope="row">3</td>
-                <td></td>
-                <td></td>
-            </tr>
+            {% endfor %}
+        
         </tbody>
     </table>
 

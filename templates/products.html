@@ -10,8 +10,60 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg mt-auto">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="/"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="/">My duka</a></li>
+          <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="/stock">Stock</a></li>
+          <li class="nav-item"><a class="nav-link" href="/sales">Sales</a></li>
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <h1>My products</h1>
-    <p>{{my_products}}</p>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Add products
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">My Products</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/add_products" method="post">
+  <div class="mb-3">
+    <label for="name">Product Name</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="bp">Buying Price</label><br>
+    <input type="number" id="bp" name="Buying_Price"><br>
+    <label for="sp">Selling price</label><br>
+    <input type="number" id="sp" name="Selling_Price"><br>
+    <button type="submit">Add products</button>
+
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <table class="table-bordered">
         <thead>
             <tr>

@@ -2,63 +2,99 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
 
 
 </head>
 
 <body>
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg mt-auto">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href=""></a>
+      <a class="navbar-brand fw-bold" href="/"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="/">My duka</a></li>
           <li class="nav-item"><a class="nav-link" href="/products">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="/stock">Stock</a></li>
           <li class="nav-item"><a class="nav-link" href="/sales">Sales</a></li>
           <li class="nav-item">
-            <button class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#addModal">+ Add</button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-    <h1>My sales</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <td scope="col">Product Id</td>
-                <td scope="col">Quantity</td>
-                <td scope="col">Created At</td>
+  <h1>My sales</h1>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Add Sales
+  </button>
 
-            </tr>
-        </thead>
-        <tbody>
-            {% for sale in My_sales %}
-            <tr>
-                <td>{{sale[0]}}</td>
-                <td>{{sale[1]}}</td>
-                <td>{{sale[2]}}</td>
-            </tr>
-            {% endfor %}
-        
-        </tbody>
-    </table>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">My Sales</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/add_sales" method="post">
+            <div class="mb-3">
+              <label for="pid">Choose a product</label>
+              <select name="pid" id="pid">
+                {% for prods in products %}
+                <option value="{{prods[0]}}">{{prods[1]}}</option>
+                {% endfor %}
+              </select>
+              <br><br>
+              <label for="pq">Quantity</label><br>
+              <input type="number" id="pq" name="Pquantity"><br>
+              <button type="submit">Add Sales</button>
+
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th scope="col">Product_Id</th>
+        <th scope="col">Quantity</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for Mys in my_sales %}
+      <tr>
+        <td>{{Mys[0]}}</td>
+        <td>{{Mys[1]}}</td>
+        <td>{{Mys[2]}}</td>
+
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-    crossorigin="anonymous"></script>
+  integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 
 </html>

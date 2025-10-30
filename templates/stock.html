@@ -47,10 +47,13 @@
         <div class="modal-body">
           <form action="/add_stock" method="post">
             <div class="mb-3">
-              <label for="pid">Product_id</label><br>
-              <input type="text" id="name" name="pid"><br>
+              <label for="pid">input stock</label>
+              <select name="pid" id="pid">
+                {% for prods in products %}
+                <option value="{{prods[0]}}">{{prods[1]}}</option>
+                {% endfor %}
               <label for="sq">Stock_Quantity</label><br>
-              <input type="number" id="sq" name="squantity"><br>
+              <input type="number" id="sq" name="squantity"><br><br>
               <button type="submit">Add Stock</button>
 
             </div>
